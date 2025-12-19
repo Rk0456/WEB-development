@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Catalogue - Online Book Store</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #6a11cb, #2575fc, #ff4d6d);
+            background-size: 300% 300%;
+            animation: bgMove 10s ease infinite;
+        }
+
+        @keyframes bgMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Header */
+        .header {
+            position: relative;
+            padding: 15px 30px;
+        }
+
+        h2 {
+            text-align: center;
+            color: white;
+            margin: 0;
+        }
+
+        /* Cart */
+        .cart {
+            position: absolute;
+            right: 30px;
+            top: 15px;
+            background: white;
+            padding: 8px 15px;
+            border-radius: 25px;
+            font-weight: bold;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        }
+
+        .container {
+            width: 95%;
+            margin: auto;
+            text-align: center;
+        }
+
+        .book {
+            width: 23%;
+            display: inline-block;
+            margin: 1%;
+            padding: 15px;
+            background: rgba(255,255,255,0.95);
+            box-shadow: 0 0 10px rgba(0,0,0,0.4);
+            text-align: center;
+            vertical-align: top;
+            border-radius: 10px;
+        }
+
+        .book img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        .qty-controls {
+            margin-top: 10px;
+        }
+
+        .qty-controls button {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: none;
+            background: #2575fc;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .qty-controls span {
+            display: inline-block;
+            width: 30px;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="header">
+    <h2>📚 Book Catalogue</h2>
+    <div class="cart">
+        🛒 Cart: <span id="cartCount">0</span>
+    </div>
+</div>
+
+<div class="container">
+
+    <!-- Existing Books -->
+    <div class="book">
+        <img src="https://covers.openlibrary.org/b/id/8231996-L.jpg">
+        <h3>Wings of Fire</h3>
+        <p>Author: A.P.J Abdul Kalam</p>
+        <p>Price: ₹299</p>
+        <div class="qty-controls">
+            <button onclick="changeQty(this, -1)">-</button>
+            <span>0</span>
+            <button onclick="changeQty(this, 1)">+</button>
+        </div>
+    </div>
+
+    <div class="book">
+        <img src="https://covers.openlibrary.org/b/id/10958357-L.jpg">
+        <h3>The Alchemist</h3>
+        <p>Author: Paulo Coelho</p>
+        <p>Price: ₹199</p>
+        <div class="qty-controls">
+            <button onclick="changeQty(this, -1)">-</button>
+            <span>0</span>
+            <button onclick="changeQty(this, 1)">+</button>
+        </div>
+    </div>
+
+    <div class="book">
+        <img src="https://covers.openlibrary.org/b/id/11153228-L.jpg">
+        <h3>Atomic Habits</h3>
+        <p>Author: James Clear</p>
+        <p>Price: ₹399</p>
+        <div class="qty-controls">
+            <button onclick="changeQty(this, -1)">-</button>
+            <span>0</span>
+            <button onclick="changeQty(this, 1)">+</button>
+        </div>
+    </div>
+
+    <div class="book">
+        <img src="https://covers.openlibrary.org/b/id/10581220-L.jpg">
+        <h3>Rich Dad Poor Dad</h3>
+        <p>Author: Robert Kiyosaki</p>
+        <p>Price: ₹250</p>
+        <div class="qty-controls">
+            <button onclick="changeQty(this, -1)">-</button>
+            <span>0</span>
+            <button onclick="changeQty(this, 1)">+</button>
+        </div>
+    </div>
+
+    <!-- New Books -->
+    <div class="book">
+        <img src="https://covers.openlibrary.org/b/id/11153250-L.jpg">
+        <h3>Pride and Prejudice</h3>
+        <p>Author: Jane Austen</p>
+        <p>Price: ₹350</p>
+        <div class="qty-controls">
+            <button onclick="changeQty(this, -1)">-</button>
+            <span>0</span>
+            <button onclick="changeQty(this, 1)">+</button>
+        </div>
+    </div>
+
+    <div class="book">
+        <img src="https://covers.openlibrary.org/b/id/10287430-L.jpg">
+        <h3>A Brief History of Time</h3>
+        <p>Author: Stephen Hawking</p>
+        <p>Price: ₹450</p>
+        <div class="qty-controls">
+            <button onclick="changeQty(this, -1)">-</button>
+            <span>0</span>
+            <button onclick="changeQty(this, 1)">+</button>
+        </div>
+    </div>
+
+    <div class="book">
+        <img src="https://covers.openlibrary.org/b/id/10472684-L.jpg">
+        <h3>The Ship</h3>
+        <p>Author: C.S. Forester</p>
+        <p>Price: ₹320</p>
+        <div class="qty-controls">
+            <button onclick="changeQty(this, -1)">-</button>
+            <span>0</span>
+            <button onclick="changeQty(this, 1)">+</button>
+        </div>
+    </div>
+
+    <div class="book">
+        <img src="https://covers.openlibrary.org/b/id/10770648-L.jpg">
+        <h3>Motorcycle Diaries</h3>
+        <p>Author: Ernesto Che Guevara</p>
+        <p>Price: ₹280</p>
+        <div class="qty-controls">
+            <button onclick="changeQty(this, -1)">-</button>
+            <span>0</span>
+            <button onclick="changeQty(this, 1)">+</button>
+        </div>
+    </div>
+
+    <div class="book">
+        <img src="https://covers.openlibrary.org/b/id/10894345-L.jpg">
+        <h3>The Car Book</h3>
+        <p>Author: DK Publishing</p>
+        <p>Price: ₹400</p>
+        <div class="qty-controls">
+            <button onclick="changeQty(this, -1)">-</button>
+            <span>0</span>
+            <button onclick="changeQty(this, 1)">+</button>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    function changeQty(button, change) {
+        let span = button.parentNode.querySelector("span");
+        let qty = parseInt(span.innerText) + change;
+        if (qty < 0) qty = 0;
+        span.innerText = qty;
+        updateCart();
+    }
+
+    function updateCart() {
+        let spans = document.querySelectorAll(".qty-controls span");
+        let total = 0;
+        spans.forEach(s => total += parseInt(s.innerText));
+        document.getElementById("cartCount").innerText = total;
+    }
+</script>
+
+</body>
+</html>

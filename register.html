@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration - Online Book Store</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+
+            /* SAME animated gradient background */
+            background: linear-gradient(
+                135deg,
+                #6a11cb,
+                #2575fc,
+                #ff4d6d
+            );
+            background-size: 300% 300%;
+            animation: bgMove 10s ease infinite;
+        }
+
+        @keyframes bgMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Panda animation */
+        .panda {
+            position: absolute;
+            font-size: 40px;
+            animation: pandaMove 12s linear infinite;
+            opacity: 0.8;
+            z-index: 1;
+        }
+
+        .panda:nth-child(1) { left: 10%; animation-duration: 10s; }
+        .panda:nth-child(2) { left: 45%; animation-duration: 14s; }
+        .panda:nth-child(3) { left: 75%; animation-duration: 18s; }
+
+        @keyframes pandaMove {
+            from {
+                bottom: -50px;
+                transform: rotate(0deg);
+            }
+            to {
+                bottom: 110%;
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Registration box */
+        .reg-box {
+            width: 350px;
+            margin: 90px auto;
+            background: rgba(255,255,255,0.95);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            position: relative;
+            z-index: 2;
+            animation: slideDown 1s ease;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-40px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        h2 {
+            text-align: center;
+            color: #1f2933;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #2575fc;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #1f5edc;
+        }
+
+        /* Home page after registration */
+        .home {
+            display: none;
+            text-align: center;
+            color: white;
+            margin-top: 120px;
+            position: relative;
+            z-index: 2;
+            animation: fadeIn 1.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Panda background -->
+    <div class="panda">🐼</div>
+    <div class="panda">🐼</div>
+    <div class="panda">🐼</div>
+
+    <!-- Registration Form -->
+    <div class="reg-box" id="regBox">
+        <h2>Create Account</h2>
+        <form onsubmit="return registerUser()">
+            <input type="text" placeholder="Full Name" required>
+            <input type="email" placeholder="Email ID" required>
+            <input type="text" placeholder="Username" required>
+            <input type="password" placeholder="Password" required>
+            <input type="text" placeholder="Phone Number" required>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+
+    <!-- Website Page -->
+    <div class="home" id="homePage">
+        <h1>📚 Online Book Store</h1>
+        <p>Registration Successful 🎉</p>
+        <p>Welcome to our website</p>
+        <p>Fiction | Science | Business | Children</p>
+    </div>
+
+    <script>
+        function registerUser() {
+            document.getElementById("regBox").style.display = "none";
+            document.getElementById("homePage").style.display = "block";
+            return false;
+        }
+    </script>
+
+</body>
+</html>
